@@ -1,12 +1,13 @@
 import Image from "next/image";
+import BannerSlider from "./Components/Banner";
 
 export default function Home() {
   return (
     <div>
-      <h1 className="text-5xl bg-black text-white py-20">
-        Hello World
 
-      </h1>
+      <BannerSlider />
+
+
     </div>
   );
 }
