@@ -22,7 +22,7 @@ const Banner = () => {
                     Join the movement to raise awareness, boycott injustice, and stand in solidarity with the people of Palestine.
                 </p>
 
-                <div className="flex justify-center gap-4 flex-wrap text-2xl">
+                <div className="flex justify-center gap-4 flex-wrap ">
                     <Link href="/boycott">
                         <button className="bg-red-600 hover:bg-red-700 transition px-6 py-3 rounded-lg font-semibold">
                             Boycott Products

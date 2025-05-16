@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,10 +18,10 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800 shadow-md">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur border-b border-gray-200 dark:border-gray-800 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold text-red-600">
+                <Link href="/" className="text-2xl font-bold text-red-600 font-serif">
                     Free Palestine <span className="text-green-600">BD</span>
                 </Link>
 
