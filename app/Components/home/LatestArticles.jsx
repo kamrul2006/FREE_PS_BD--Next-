@@ -75,7 +75,7 @@ const LatestArticles = () => {
                                 <p className="text-gray-300  text-sm flex-grow line-clamp-3">
                                     {snippet}
                                 </p>
-                                <div className="mt-4 flex items-center justify-between">
+                                {/* <div className="mt-4 flex items-center justify-between">
                                     <Link
                                         href={`/news/${slug}`}
                                         className="text-sm bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
@@ -87,7 +87,7 @@ const LatestArticles = () => {
                                             Premium
                                         </span>
                                     )}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     ))}
