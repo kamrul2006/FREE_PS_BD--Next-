@@ -88,7 +88,7 @@ const newsArticles = [
 
 export default function NewsPage() {
     return (
-        <section className="min-h-screen bg-gray-100 dark:bg-zinc-900 py-16 px-6">
+        <section className="min-h-screen bg-gray-100 dark:bg-zinc-900 py-16 px-6 lg:mt-16">
             <div className="max-w-6xl mx-auto">
                 <h1 className="text-4xl font-bold text-center text-red-600 dark:text-red-400 mb-4">
                     Palestine News & Solidarity
