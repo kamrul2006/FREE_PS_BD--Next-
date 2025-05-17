@@ -1,12 +1,12 @@
 'use client';
 
-import bg from "../../public/banner.jpg"
 import Link from 'next/link';
+
 
 const Banner = () => {
     return (
         <section
-            className="relative h-[80vh] lg:h-screen w-full bg-cover bg-center flex items-center justify-center text-white"
+            className="relative h-[80vh] lg:h-screen w-full bg-cover bg-center flex items-center justify-center text-white lg:mt-16"
             style={{
                 backgroundImage: `url(${"https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1874700050.jpg?c=16x9"})`, backgroundSize: 'cover',
                 backgroundPosition: 'center'

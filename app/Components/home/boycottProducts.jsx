@@ -50,6 +50,7 @@ export default function BoycottPreview() {
                                     loading="lazy"
                                 />
                             </Link>
+
                             <div className="p-6 flex flex-col flex-1">
                                 <h3 className="text-2xl font-semibold mb-2">{name}</h3>
                                 <p className="text-gray-300 mb-4">{description}</p>
