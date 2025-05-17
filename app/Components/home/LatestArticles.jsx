@@ -78,7 +78,7 @@ const LatestArticles = () => {
                                 <div className="mt-4 flex items-center justify-between">
                                     <Link
                                         href={`/news/${slug}`}
-                                        className="text-sm bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+                                        className="text-sm bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
                                     >
                                         Read More
                                     </Link>
@@ -96,7 +96,7 @@ const LatestArticles = () => {
                 <div className="text-center mt-10">
                     <Link
                         href="/news"
-                        className="inline-block bg-green-400 text-green-900 px-6 py-2 rounded-full hover:bg-green-800 hover:text-white transition duration-300"
+                        className="inline-block bg-green-700 text-green-100 px-6 py-2 rounded-full hover:bg-green-800 font-medium hover:text-white transition duration-300"
                     >
                         View All News
                     </Link>

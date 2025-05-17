@@ -32,7 +32,7 @@ const Login = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="you@example.com"
-                                className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-green-700"
                             />
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="••••••••"
-                                className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-green-700"
                             />
                         </div>
                     </div>
@@ -64,7 +64,7 @@ const Login = () => {
 
                 <p className="mt-6 text-sm text-center text-gray-600 dark:text-gray-400">
                     Don't have an account?{' '}
-                    <a href="/register" className="text-green-500 hover:underline">
+                    <a href="/register" className="text-green-700 hover:underline">
                         Register now
                     </a>
                 </p>

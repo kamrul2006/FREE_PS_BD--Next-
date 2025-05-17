@@ -54,7 +54,7 @@ const SocialFeed = () => {
     return (
         <section className="py-20 px-4 bg-gradient-to-br from-gray-950 to-gray-800">
             <div className="max-w-6xl mx-auto text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-green-500">Social Media Voices</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-green-700">Social Media Voices</h2>
                 <p className="mt-4 text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
                     Real stories. Real people. Explore global solidarity for Palestine from social media feeds.
                 </p>

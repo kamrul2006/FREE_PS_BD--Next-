@@ -112,7 +112,7 @@ export default function BoycottPage() {
                     <select
                         onChange={(e) => setSelectedCategory(e.target.value)}
                         value={selectedCategory}
-                        className="bg-gray-800 text-white px-4 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="bg-gray-800 text-white px-4 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-700"
                     >
                         <option value="All">All Categories</option>
                         {allCategories.map((category) => (

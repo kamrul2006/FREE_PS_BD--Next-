@@ -29,7 +29,7 @@ const Banner = () => {
                         </button>
                     </Link>
                     <Link href="/protests">
-                        <button className="bg-green-600 hover:bg-green-700 transition px-6 py-3 rounded-lg font-semibold">
+                        <button className="bg-green-700 hover:bg-green-800 transition px-6 py-3 rounded-lg font-semibold">
                             Join Protests
                         </button>
                     </Link>

@@ -36,7 +36,7 @@ const NewsletterSignup = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
                             required
-                            className="w-full sm:w-2/3 px-6 py-3 rounded-full border border-white text-white placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-green-500"
+                            className="w-full sm:w-2/3 px-6 py-3 rounded-full border border-white text-white placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-green-700"
                         />
                         <button
                             type="submit"

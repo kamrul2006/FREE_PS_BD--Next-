@@ -58,20 +58,13 @@ export default function BoycottPreview() {
                                     {tags.map((tag, i) => (
                                         <span
                                             key={i}
-                                            className="text-xs bg-green-600/70 text-white px-3 py-1 rounded-full font-medium"
+                                            className="text-xs bg-green-600/50 text-white px-2 rounded font-medium"
                                         >
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
-                                <div className="mt-auto">
-                                    <Link
-                                        href={boycottUrl}
-                                        className="inline-block w-full text-center bg-green-600 hover:bg-green-700 px-5 py-2 rounded-md font-semibold transition"
-                                    >
-                                        Learn More
-                                    </Link>
-                                </div>
+
                             </div>
                         </div>
                     ))}
