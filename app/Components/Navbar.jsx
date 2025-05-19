@@ -14,9 +14,10 @@ const Navbar = () => {
 
     const navLinks = [
         { href: '/', label: 'Home' },
-        { href: '/news', label: 'News' },
         { href: '/boycott', label: 'Boycott' },
-        { href: '/protests', label: 'Protests' },
+        { href: '/news', label: 'News' },
+
+        { href: '/donet', label: 'Donate' },
         { href: '/resources', label: 'Resources' },
         { href: '/contact', label: 'Contact' },
     ];
@@ -62,7 +63,7 @@ const Navbar = () => {
                             <img
                                 src={session.user.image}
                                 alt="Profile"
-                                className="w-9 h-9 rounded-full cursor-pointer ring-2 ring-green-700"
+                                className="w-9 h-9 rounded-full cursor-pointer ring-2 ring-green-700 hover:ring-red-700"
                                 onClick={() => router.push('/dashboard')}
                             />
 

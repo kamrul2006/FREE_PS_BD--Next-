@@ -28,9 +28,9 @@ const Banner = () => {
                             Boycott Products
                         </button>
                     </Link>
-                    <Link href="/protests">
+                    <Link href="/donet">
                         <button className="bg-green-700 hover:bg-green-800 transition px-6 py-3 rounded-lg font-semibold">
-                            Join Protests
+                            Donate Now
                         </button>
                     </Link>
                 </div>

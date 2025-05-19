@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 const boycottProducts = [
     {
@@ -89,7 +90,35 @@ const boycottProducts = [
 const allCategories = Array.from(new Set(boycottProducts.map(p => p.category)));
 
 export default function BoycottPage() {
+    const { data: session, status } = useSession();
     const [selectedCategory, setSelectedCategory] = useState('All');
+
+    if (status === 'loading') {
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+                <p className="text-lg animate-pulse">Loading...</p>
+            </div>
+        );
+    }
+
+    if (!session) {
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 px-4">
+                <div className="bg-gray-800 rounded-3xl p-10 max-w-md text-center shadow-2xl border border-green-700">
+                    <h2 className="text-3xl font-bold text-red-500 mb-4">You are not logged in</h2>
+                    <p className="text-gray-300 mb-6">
+                        Please log in first to view the boycott products and details.
+                    </p>
+                    <Link
+                        href="/login"
+                        className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full transition"
+                    >
+                        Login Now
+                    </Link>
+                </div>
+            </div>
+        );
+    }
 
     const filteredProducts =
         selectedCategory === 'All'
@@ -134,7 +163,7 @@ export default function BoycottPage() {
                                 alt={product.name}
                                 className="h-40 w-full object-contain rounded-md mb-4 bg-white p-2"
                             />
-                            <h2 className="text-xl font-semibold text-green-300 mb-1">{product.name}</h2>
+                            <h2 className="text-2xl text-center font-semibold text-green-300 mb-2">{product.name}</h2>
                             <div className="flex flex-wrap gap-2 mb-2">
                                 {product.tags.map((tag, idx) => (
                                     <span
@@ -146,12 +175,6 @@ export default function BoycottPage() {
                                 ))}
                             </div>
                             <p className="text-gray-300 text-sm mb-4">{product.description}</p>
-                            <Link
-                                href={`/boycott/${product.name.toLowerCase().replace(/[^a-z0-9]/gi, '')}`}
-                                className="mt-auto inline-block text-center bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md font-semibold text-white"
-                            >
-                                Learn Why
-                            </Link>
                         </div>
                     ))}
                 </div>

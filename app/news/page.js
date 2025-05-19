@@ -1,6 +1,27 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+
+// // Dummy auth check function (replace with real auth logic)
+// function useAuth() {
+//     // For demo: false means user not logged in
+//     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//     useEffect(() => {
+//         // Simulate checking auth status (replace with your auth logic)
+//         const userLoggedIn = false; // change to true to test logged-in state
+//         setIsLoggedIn(userLoggedIn);
+//     }, []);
+
+//     return isLoggedIn;
+// }
+
+
+// const isLoggedIn = useAuth();
+
+
 
 const newsArticles = [
     {
@@ -87,28 +108,59 @@ const newsArticles = [
 
 
 export default function NewsPage() {
+    const { data: session, status } = useSession();
+
+
+
+    if (status === 'loading') {
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+                <p className="text-lg animate-pulse">Loading...</p>
+            </div>
+        );
+    }
+
+    if (!session) {
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 px-4">
+                <div className="bg-gray-800 rounded-3xl p-10 max-w-md text-center shadow-2xl border border-red-700">
+                    <h2 className="text-3xl font-bold text-red-500 mb-4">You are not logged in</h2>
+                    <p className="text-gray-300 mb-6">
+                        Please log in first to view the News and details.
+                    </p>
+                    <Link
+                        href="/login"
+                        className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition"
+                    >
+                        Login Now
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <section className="min-h-screen bg-gray-100 dark:bg-zinc-900 py-16 px-6 lg:mt-16">
+        <section className="min-h-screen bg-zinc-700 py-16 px-6 lg:mt-16">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-4xl font-bold text-center text-red-600 dark:text-red-400 mb-4">
+                <h1 className="text-4xl font-bold text-center text-red-400 mb-4">
                     Palestine News & Solidarity
                 </h1>
-                <p className="text-center text-gray-600 dark:text-gray-300 mb-10">
+                <p className="text-center text-gray-300 mb-10">
                     Get the latest updates on protests, movements, and campaigns supporting Palestine.
                 </p>
 
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {newsArticles.map(({ id, title, summary, image, tag, slug }) => (
-                        <div key={id} className="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-zinc-800 transition-all hover:scale-[1.02]">
+                        <div key={id} className="rounded-xl overflow-hidden shadow-lg bg-zinc-800 transition-all hover:scale-[1.02]">
                             <img src={image} alt={title} className="w-full h-48 object-cover" />
                             <div className="p-5">
-                                <span className="inline-block bg-red-100 text-red-600 dark:bg-red-800 dark:text-red-300 text-xs font-bold px-3 py-1 rounded-full mb-2">
+                                <span className="inline-block bg-red-800 text-red-300 text-xs font-bold px-3 py-1 rounded-full mb-2">
                                     {tag}
                                 </span>
-                                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{summary}</p>
+                                <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+                                <p className="text-sm text-gray-300 mb-4">{summary}</p>
                                 <Link href={`/news/${slug}`}>
-                                    <span className="text-green-600 dark:text-green-400 font-semibold hover:underline">
+                                    <span className="text-green-600 dark:text-green-400 font-semibold hover:underline cursor-pointer">
                                         Read More →
                                     </span>
                                 </Link>

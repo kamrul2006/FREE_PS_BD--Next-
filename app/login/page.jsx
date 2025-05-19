@@ -1,111 +1,134 @@
 'use client';
 
-import { useState } from 'react';
-import { Lock, Mail } from 'lucide-react';
-import { signIn, signOut, useSession } from "next-auth/react";
-// import { Mail } from 'lucide-react';
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export default function LoginPage() {
+    const router = useRouter();
+    // const [email, setEmail] = useState("");
+    // const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState("");
 
-    const { data: session } = useSession();
+    // async function handleEmailSignIn(e) {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     setError("");
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        // You can connect this to your backend or API
-        console.log('Logging in with:', { email, password });
-    };
+    //     // Sign in with Email Provider (magic link)
+    //     const res = await signIn("email", {
+    //         redirect: false,
+    //         email,
+    //         callbackUrl: "/", // after login redirect here
+    //     });
+
+    //     setLoading(false);
+
+    //     if (res?.error) {
+    //         setError(res.error);
+    //     } else if (res?.ok) {
+    //         alert("Check your email for the login link!");
+    //         setEmail("");
+    //     }
+    // }
+
+    function handleGoogleSignIn() {
+        signIn("google", { callbackUrl: "/" });
+    }
+
+    function handleFBSignIn() {
+        signIn("facebook", { callbackUrl: "/" });
+    }
 
     return (
-        <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-900 via-black to-red-900 px-4">
-            <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg p-8 w-full max-w-md">
-                <h2 className="text-3xl font-bold text-center text-green-600 mb-6">
-                    Welcome Back
-                </h2>
-                {/* <form onSubmit={handleLogin} className="space-y-6">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                            Email
-                        </label>
-                        <div className="relative">
-                            <Mail className="absolute top-3 left-3 text-gray-400" size={18} />
-                            <input
-                                type="email"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="you@example.com"
-                                className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                        </div>
-                    </div>
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+            <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+                <h2 className="text-2xl font-bold mb-6 text-center">Login to Free Palestine BD</h2>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                            Password
-                        </label>
-                        <div className="relative">
-                            <Lock className="absolute top-3 left-3 text-gray-400" size={18} />
-                            <input
-                                type="password"
-                                required
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="••••••••"
-                                className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-green-700"
-                            />
-                        </div>
-                    </div>
+                {/* <form onSubmit={handleEmailSignIn} className="space-y-4">
+                    <label htmlFor="email" className="block font-medium text-gray-700">
+                        Email address
+                    </label>
+                    <input
+                        id="email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600"
+                        placeholder="you@example.com"
+                    />
+
+                    {error && (
+                        <p className="text-red-600 text-sm">{error}</p>
+                    )}
 
                     <button
                         type="submit"
-                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-md transition"
+                        disabled={loading}
+                        className="w-full bg-green-600 text-white py-2 rounded font-semibold hover:bg-green-700 disabled:opacity-50"
                     >
-                        Login
+                        {loading ? "Sending link..." : "Send Magic Link"}
                     </button>
                 </form> */}
 
-                <div className="min-h-screen flex items-center justify-center bg-zinc-900 text-white">
-                    <div className="bg-zinc-800 p-8 rounded-lg shadow-lg max-w-sm w-full">
-                        {session ? (
-                            <>
-                                <h2 className="text-2xl font-bold mb-4">Welcome, {session.user.name}</h2>
-                                <button
-                                    onClick={() => signOut()}
-                                    className="w-full bg-red-600 hover:bg-red-700 py-2 rounded-md"
-                                >
-                                    Sign Out
-                                </button>
-                            </>
-                        ) : (
-                            <>
-                                <h2 className="text-2xl font-bold mb-4">Login</h2>
-                                <button
-                                    onClick={() => signIn('google')}
-                                    className="w-full flex items-center justify-center gap-3 border border-gray-600 text-white py-2 rounded-md hover:bg-zinc-700 transition"
-                                >
-                                    <img
-                                        src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-icon-PNG.png"
-                                        alt="Google"
-                                        className="w-5 h-5 rounded-full"
-                                    />
-                                    Continue with Google
-                                </button>
-                            </>
-                        )}
-                    </div>
+                {/* -------------facebook login------------------ */}
+
+                <button
+                    onClick={handleFBSignIn}
+                    className="w-full border border-gray-300  py-2 flex items-center justify-center space-x-2 hover:bg-blue-400 bg-blue-500 rounded-full"
+                >
+                    <img
+                        src="https://img.icons8.com/ios-filled/50/FFFFFF/facebook-new.png"
+                        alt="FB logo"
+                        className="w-5 h-5"
+                    />
+                    <span>Sign in with FB</span>
+                </button>
+
+                <div className="my-6 flex items-center">
+                    <hr className="flex-grow border-t border-gray-300" />
+                    <span className="mx-3 text-gray-400">OR</span>
+                    <hr className="flex-grow border-t border-gray-300" />
                 </div>
 
-                {/* <p className="mt-6 text-sm text-center text-gray-600 dark:text-gray-400">
-                    Don't have an account?{' '}
-                    <a href="/register" className="text-green-700 hover:underline">
-                        Register now
-                    </a>
-                </p> */}
-            </div>
-        </section>
-    );
-};
+                {/* --------------git hub login------------------- */}
 
-export default Login;
+                <button
+                    onClick={handleGoogleSignIn}
+                    className="w-full border border-gray-300 rounded-full py-2 flex items-center justify-center bg-gray-900 hover:bg-gray-700 text-white space-x-2 "
+                >
+                    <img
+                        src="https://img.icons8.com/sf-regular-filled/50/FFFFFF/github.png"
+                        alt="github logo"
+                        className="w-5 h-5"
+                    />
+                    <span>Sign in with Github</span>
+                </button>
+
+                <div className="my-6 flex items-center">
+                    <hr className="flex-grow border-t border-gray-300" />
+                    <span className="mx-3 text-gray-400">OR</span>
+                    <hr className="flex-grow border-t border-gray-300" />
+                </div>
+
+                {/* --------------------google login----------------------- */}
+
+                <button
+                    onClick={handleGoogleSignIn}
+                    className="w-full border border-gray-300 rounded-full py-2 flex items-center justify-center space-x-2 hover:bg-gray-100"
+                >
+                    <img
+                        src="https://img.icons8.com/color/48/google-logo.png"
+                        alt="Google logo"
+                        className="w-5 h-5"
+                    />
+                    <span>Sign in with Google</span>
+                </button>
+
+
+
+            </div>
+        </div>
+    );
+}
