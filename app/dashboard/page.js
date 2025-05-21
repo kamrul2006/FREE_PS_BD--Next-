@@ -1,19 +1,25 @@
-// app/dashboard/page.jsx
 'use client';
 
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { LogOut, Settings, User, Shield } from 'lucide-react';
+import { useEffect } from 'react';
+import { LogOut, User } from 'lucide-react';
 
 export default function DashboardPage() {
     const { data: session, status } = useSession();
     const router = useRouter();
 
-    if (status === 'loading') return <div className="text-center mt-10 text-white">Loading...</div>;
-    if (!session) {
-        router.push('/login');
-        return null;
+    useEffect(() => {
+        if (status === 'unauthenticated') {
+            router.push('/login');
+        }
+    }, [status, router]);
+
+    if (status === 'loading') {
+        return <div className="text-center mt-10 text-white">Loading...</div>;
     }
+
+    if (!session) return null; // Wait for redirect
 
     const user = session.user;
 
@@ -26,12 +32,7 @@ export default function DashboardPage() {
                     <button className="flex items-center gap-2 hover:text-red-400 transition">
                         <User size={20} /> Profile
                     </button>
-                    {/* <button className="flex items-center gap-2 hover:text-red-400 transition">
-                        <Shield size={20} /> Security
-                    </button>
-                    <button className="flex items-center gap-2 hover:text-red-400 transition">
-                        <Settings size={20} /> Settings
-                    </button> */}
+
                     <button
                         onClick={() => signOut()}
                         className="flex items-center gap-2 hover:text-red-400 transition"
@@ -63,6 +64,7 @@ export default function DashboardPage() {
 
                 {/* Info Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                    {/* Recent Activity */}
                     <div className="bg-zinc-800 p-6 rounded-xl shadow-lg border border-zinc-700">
                         <h3 className="text-xl font-semibold mb-2 text-red-400">Recent Activity</h3>
                         <ul className="text-sm text-gray-300 list-disc pl-5 space-y-1">
@@ -72,12 +74,14 @@ export default function DashboardPage() {
                         </ul>
                     </div>
 
+                    {/* Profile Stats */}
                     <div className="bg-zinc-800 p-6 rounded-xl shadow-lg border border-zinc-700">
                         <h3 className="text-xl font-semibold mb-2 text-red-400">Profile Stats</h3>
                         <p className="text-gray-300">Email: <span className="font-medium">{user.email}</span></p>
                         <p className="text-gray-300 mt-2">Login Method: <span className="font-medium">{user.image ? 'OAuth' : 'Email'}</span></p>
                     </div>
 
+                    {/* Security Alert */}
                     <div className="bg-zinc-800 p-6 rounded-xl shadow-lg border border-zinc-700">
                         <h3 className="text-xl font-semibold mb-2 text-red-400">Security Alert</h3>
                         <p className="text-yellow-300 text-sm">No suspicious activity detected. Keep your credentials secure.</p>

@@ -7,7 +7,7 @@ const posts = [
         id: 1,
         platform: 'Instagram',
         user: '@kamrul_islam_apurba',
-        image: 'https://scontent.fdac152-1.fna.fbcdn.net/v/t39.30808-6/489886852_122100889898831683_3245935648496742197_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeH_LGS439E5XQacKjXDtS7IAOAn1bjs1_YA4CfVuOzX9je65FfeXMqwQCo2ZPYY3IfwYHMVaQKlIoMq87EStOMA&_nc_ohc=xrIQgL452MAQ7kNvwFBfWs_&_nc_oc=Adl5CMSgJeuVmVxymVgWYjXRa0c_UIvkPCV1gEv23dCrXycR_XMohNqUqR-Wbe1IZyk&_nc_zt=23&_nc_ht=scontent.fdac152-1.fna&_nc_gid=5mOUdKoXhqe6jUwjtK5nBA&oh=00_AfLg141pJzg_uwAREx9CwMIK9BIcGObrGQVZJmPfTaVglQ&oe=682D1892',
+        image: 'https://www.greenleft.org.au/sites/default/files/gd040824_0.jpg',
         caption: 'Stand with humanity. 🇵🇸❤️ #FreePalestine #Gaza',
         time: '2h ago',
     },
@@ -22,7 +22,7 @@ const posts = [
     {
         id: 3,
         platform: 'Facebook',
-        user: '@voice4justice.bd',
+        user: '@free-palestine-bd',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvapbsD-ICof_bt5saQ1EgiO8tzo-9fU7bWA&s',
         caption: 'Boycott works. Speak up. Take action. 🛑 #BDS #StopGenocide',
         time: '6h ago',
