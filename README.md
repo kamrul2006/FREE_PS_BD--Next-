@@ -130,7 +130,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 > 🕊️ *In solidarity with Palestine – Free PS BD stands for justice and truth.*
 
-```
-
----
 
