@@ -1,49 +1,60 @@
 
 # 🕊️ Free PS BD
 
-**Free PS BD** is a modern, responsive web application built with **Next.js 15**, providing news, updates, and resources in solidarity with Palestine. The project includes social login (Google, GitHub, Facebook), role-based access, protected routes, and article approval workflows.
+**Free PS BD** is a modern, responsive web application built with **Next.js 15**, providing real-time news, updates, and resources in solidarity with Palestine. Featuring seamless authentication, role-based access control, and a moderated article publishing system, it empowers communities with reliable information.
 
-## 🌐 Live Site
+🌐 **Live Preview**: [Visit the Site »](https://free-ps-bd-next.vercel.app)
 
-👉 [Visit Now](https://free-ps-bd-next.vercel.app)
+---
+
+## 📚 Table of Contents
+
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Environment Variables](#-environment-variables)
+- [Development](#-development)
+- [Deployment](#-deployment)
+- [Contributors](#-contributors)
+- [License](#-license)
 
 ---
 
 ## 🚀 Features
 
-- ✅ Modern UI with TailwindCSS & Framer Motion
-- 📰 Dynamic news cards with image modals
-- 🔒 Auth with `next-auth` (Google, GitHub, Facebook)
-- 👤 Role-based routing (user/admin)
-- 🗃️ Article submission, approval, and tagging system
-- 🌓 Dark theme support with `next-themes`
-- 📩 Email support via Nodemailer
+- 🎨 **Modern UI** – Styled with Tailwind CSS 4 + Framer Motion
+- 📰 **Dynamic News Cards** – With image modals and tagging
+- 🔐 **Social Login** – Google, GitHub, and Facebook via `next-auth`
+- 👥 **Role-Based Access** – Admin and User dashboards
+- ✍️ **Content Workflow** – Submit, approve, and publish articles
+- 🌙 **Dark Mode** – Integrated with `next-themes`
+- 📬 **Email Notifications** – Powered by Nodemailer
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tech           | Description                                  |
-|----------------|----------------------------------------------|
-| Next.js 15     | React framework for SSR/SSG/RSC              |
-| Tailwind CSS 4 | Utility-first CSS framework                  |
-| next-auth      | Authentication with OAuth providers          |
-| Framer Motion  | Smooth animations                            |
-| Lucide Icons   | Clean and scalable SVG icons                 |
-| Keen Slider    | Lightweight touch slider library             |
+| Technology       | Description                            |
+|------------------|----------------------------------------|
+| **Next.js 15**   | Full-stack React framework             |
+| **Tailwind CSS** | Utility-first styling framework        |
+| **Framer Motion**| Modern animation library               |
+| **next-auth**    | Authentication with OAuth support      |
+| **Keen Slider**  | Lightweight slider component           |
+| **Lucide Icons** | Elegant and scalable SVG icons         |
 
 ---
 
 ## 📦 Installation
 
 ```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/free-ps-bd-clint.git
+# 1. Clone the repository
+git clone https://github.com/kamrul2006/free-ps-bd-clint.git
 
-# Navigate to project folder
+# 2. Navigate into the project directory
 cd free-ps-bd-clint
 
-# Install dependencies
+# 3. Install dependencies
 npm install
 ````
 
@@ -51,14 +62,14 @@ npm install
 
 ## 🔑 Environment Variables
 
-Create a `.env.local` file with the following keys:
+Create a `.env.local` file in the root directory with the following keys:
 
 ```env
-# NextAuth
+# --- NextAuth ---
 NEXTAUTH_SECRET=your-secret
 NEXTAUTH_URL=https://free-ps-bd-next.vercel.app
 
-# OAuth Providers
+# --- OAuth Providers ---
 GITHUB_ID=your-github-client-id
 GITHUB_SECRET=your-github-client-secret
 
@@ -68,7 +79,7 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 FACEBOOK_CLIENT_ID=your-facebook-client-id
 FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
 
-# SMTP for email (optional)
+# --- SMTP for Emails ---
 EMAIL_SERVER_USER=you@example.com
 EMAIL_SERVER_PASSWORD=your-password
 EMAIL_SERVER_HOST=smtp.example.com
@@ -80,59 +91,46 @@ EMAIL_FROM=no-reply@example.com
 
 ## 🧪 Development
 
+To run the development server:
+
 ```bash
-# Run local dev server
 npm run dev
 ```
 
-App will be running on: [http://localhost:3000](http://localhost:3000)
+Then visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
 ## 📤 Deployment
 
-Deployed via **Vercel**
-✅ Ensure the following in Vercel dashboard:
+**Deployed via Vercel**
 
-* Environment variables added
-* GitHub connected for auto-deploy
-* Domain configured (e.g. `free-ps-bd-next.vercel.app`)
+Make sure the following are configured in your [Vercel dashboard](https://vercel.com):
+
+* ✅ All required **environment variables**
+* ✅ Connected **GitHub repository** for auto-deploy
+* ✅ Custom **domain or Vercel subdomain**
 
 ---
 
-## ⚠️ Facebook OAuth Fix
+## 👥 Contributors
 
-If you're using Facebook Login and see:
+**Kamrul Islam Apurba**
+📧 [kamrulislamapurba@gmail.com](mailto:kamrulislamapurba@gmail.com)
 
-> "Can't Load URL: Domain not allowed..."
-
-🔧 Go to [Facebook Developer Console](https://developers.facebook.com/):
-
-* Navigate to: `Settings > Basic`
-* Set **App Domains** to:
-
-  ```
-  free-ps-bd-next.vercel.app
-  ```
-* Then go to: `Facebook Login > Settings`
-
-  * Set **Valid OAuth Redirect URIs**:
-
-  ```
-  https://free-ps-bd-next.vercel.app/api/auth/callback/facebook
-  ```
-
-Save everything and it should work ✅
+Feel free to fork, submit issues, or contribute to the project 🙌
 
 ---
 
 ## 📄 License
 
-MIT License © \[Your Name]
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+> 🕊️ *In solidarity with Palestine – Free PS BD stands for justice and truth.*
 
 ```
 
 ---
 
-Would you like the README to include screenshots or badges (build status, Vercel deploy, etc.) too?
-```
