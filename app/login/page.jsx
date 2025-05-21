@@ -6,31 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const router = useRouter();
-    // const [email, setEmail] = useState("");
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState("");
 
-    // async function handleEmailSignIn(e) {
-    //     e.preventDefault();
-    //     setLoading(true);
-    //     setError("");
-
-    //     // Sign in with Email Provider (magic link)
-    //     const res = await signIn("email", {
-    //         redirect: false,
-    //         email,
-    //         callbackUrl: "/", // after login redirect here
-    //     });
-
-    //     setLoading(false);
-
-    //     if (res?.error) {
-    //         setError(res.error);
-    //     } else if (res?.ok) {
-    //         alert("Check your email for the login link!");
-    //         setEmail("");
-    //     }
-    // }
 
     function handleGoogleSignIn() {
         signIn("google", { callbackUrl: "/" });
@@ -40,37 +16,15 @@ export default function LoginPage() {
         signIn("facebook", { callbackUrl: "/" });
     }
 
+    function handleGithubSignIn() {
+        signIn("github", { callbackUrl: "/" });
+    }
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
             <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-bold mb-6 text-center">Login to Free Palestine BD</h2>
 
-                {/* <form onSubmit={handleEmailSignIn} className="space-y-4">
-                    <label htmlFor="email" className="block font-medium text-gray-700">
-                        Email address
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-600"
-                        placeholder="you@example.com"
-                    />
-
-                    {error && (
-                        <p className="text-red-600 text-sm">{error}</p>
-                    )}
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full bg-green-600 text-white py-2 rounded font-semibold hover:bg-green-700 disabled:opacity-50"
-                    >
-                        {loading ? "Sending link..." : "Send Magic Link"}
-                    </button>
-                </form> */}
 
                 {/* -------------facebook login------------------ */}
 
@@ -95,16 +49,17 @@ export default function LoginPage() {
                 {/* --------------git hub login------------------- */}
 
                 <button
-                    onClick={handleGoogleSignIn}
-                    className="w-full border border-gray-300 rounded-full py-2 flex items-center justify-center bg-gray-900 hover:bg-gray-700 text-white space-x-2 "
+                    onClick={handleGithubSignIn}
+                    className="w-full border border-gray-300 rounded-full py-2 flex items-center justify-center bg-gray-900 hover:bg-gray-700 text-white space-x-2"
                 >
                     <img
                         src="https://img.icons8.com/sf-regular-filled/50/FFFFFF/github.png"
-                        alt="github logo"
+                        alt="GitHub logo"
                         className="w-5 h-5"
                     />
-                    <span>Sign in with Github</span>
+                    <span>Sign in with GitHub</span>
                 </button>
+
 
                 <div className="my-6 flex items-center">
                     <hr className="flex-grow border-t border-gray-300" />
@@ -116,7 +71,7 @@ export default function LoginPage() {
 
                 <button
                     onClick={handleGoogleSignIn}
-                    className="w-full border border-gray-300 rounded-full py-2 flex items-center justify-center space-x-2 hover:bg-gray-100"
+                    className="w-full border border-gray-300 rounded-full py-2 flex items-center justify-center space-x-2 hover:bg-gray-100 bg-amber-200"
                 >
                     <img
                         src="https://img.icons8.com/color/48/google-logo.png"
